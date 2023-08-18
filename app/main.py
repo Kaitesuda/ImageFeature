@@ -32,7 +32,7 @@ async def genhog(image64:Request):
             # Compute the HOG Descriptor for the gray scale image
             hog_descriptor = hog.compute(resized)
             hogvec = hog_descriptor.tolist()
-            return ('HOG', hogvec)
+            return {'HOG': hogvec}
         except Exception as ee:
              print("error ",str(ee))
              raise HTTPException(status_code=500, detail="error")
